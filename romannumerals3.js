@@ -1,96 +1,30 @@
 function toRoman(angka) {
 
-    var arr= []
-    var deret= 'MDCLXV'
+    var arr= ''
+    var deretA= [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1] 
+    var deretR= ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
     
-    
-    while (angka >= 1000) {
-        arr.push('M')
-        angka= angka-1000
-
+    for (var i= 0; i<deretA.length; i++) {
         
-    }
-
-    counter=4
-    while (angka >= 500) {
-        arr.push('D')
-        angka= angka-500
-        counter--
-        if (counter=0) {
-            arr.splice(arr.length-4, 4)
-            arr.push ('C','M')
+        if (angka-deretA[i] >=0) {
+            arr= arr + deretR[i]
+            angka= angka- deretA[i]
+            i--
         }
+    
     }
-
-
-    counter=4 
-    while (angka >= 100) {
-        arr.push('C')
-        angka= angka-100
-        counter--
-        if (counter=0) {
-            arr.splice(arr.length-4, 4)
-            arr.push ('C','D')
-        }
-    }
-
-
-
-    counter= 4
-    while (angka >= 50) {
-        arr.push('L')
-        angka= angka-50
-        counter--
-        if (counter=0) {
-            arr.splice(arr.length-4, 4)
-            arr.push ('X','C')
-        }
-    }
-
-
-    counter= 4
-    while (angka >= 10) {
-        arr.push('X')
-        angka= angka-10
-        counter--
-        if (counter=0) {
-            arr.splice(arr.length-4, 4)
-            arr.push ('X','L')
-        }
-    }
-
-
-    counter= 4
-    while (angka >= 5) {
-        arr.push('V')
-        angka= angka-5
-        counter--
-        if (counter=0) {
-            arr.splice(arr.length-4, 4)
-            arr.push ('I','X')
-        }
-    }
-
- 
-    counter= 4
-    while (angka > 0) {
-        arr.push('I')
-        angka= angka-1
-        counter--
-        if (counter=0) {
-            arr.splice(arr.length-4, 4)
-            arr.push ('I','V')
-        }
-    }
-
     return arr
-
 }
 
 
-console.log (toRoman(4))
-console.log (toRoman(9))
-console.log (toRoman(23))
-console.log (toRoman(1453))
-console.log (toRoman(1646))
+console.log('My totally sweet testing script\n')
+console.log('input | expected | actual')
+console.log('------|----------|-------')
+console.log ('4     | IV       | ', toRoman(4))
+console.log ('9     | IX       | ',  toRoman(9))
+console.log ('23    | XXIII    | ',  toRoman(23))
+console.log ('1453  | MCDLIII  | ',  toRoman(1453))
+console.log ('1646  | MDCXLVI  | ', toRoman(1646))
+
+
 
